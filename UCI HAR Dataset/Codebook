@@ -1,0 +1,34 @@
+RUN_ANALYSIS.R SCRIPT
+The script, run_analysis.R, merges all the training and test data including:
+	X_test.txt, y_test.txt and subject_test.txt
+	X_train.txt, y_train.txt and subject_train.txt
+
+The script also renamed the actual activity type as specified in activity_label.txt file. The script used the y_...txt files to map the number to the activity label and renamed the activity as a worded value instead of a number.  The column name for this field was also renamed as:
+Activity Type
+
+The average and standard deviation is shown in the first 2 columns of the the tidy dataset. The tidy dataset can viewed by accessing the tidyData.txt file to which the run_analysis.R script wrote its results to.
+
+To properly view the data, it is recommended that the tidyData.txt is read into a variable for which the head() is apply to see how the data is organized. To view a single column field using head(), just apply head(table)[i] where i is an integer for the index of each column field.
+
+The column names for X_train and X_Test was named based on the features.txt file. This can be seen in the code where the feature.txt file was read to modify the values as needed. The information in the feature.txt provides the name for each field within for which data were obtained for both the x_train and x_test datasets
+
+In order to merge the data, id numbers were introduced since the number of rows were the same dimension for the respective dataset of training and test. This use of id numbers are shown in the code where train_id and test_id were use as the merge parameters.
+
+The code was developed to meet the required functionality in the interest of time and did not factor a more abstract definitions and use of functions for the different activities undertaken in the exercise.
+
+The Inertial Signals Dataset were not used as this dataset was not relevant to the objective of the project.
+
+For additional information on the data, please see the following information as presented below.
+
+The approach taken is as follows:
+1. Read the data from all the relevant dataset: X_test.txt, X_train.txt, y_train.txt, y_test.txt
+2. Get ids for each dataset based on dimensions by just sequentially numbering the rows from 1...n rows of the data.
+3. Name the columns based on the data provided in features.txt
+4. Rename Activity based on info in activity_label.txt and map this info to the data in y_test.txt and y_train.txt
+5. Create data frames by bind the columns with the ids generated
+6. perform merges on the relevant dataframe created.
+7. Get average and standard deviation and add to this data frame
+8. Add any other relevant data to the column data fields for which mean and standard deviation are present.
+
+merge_only_train_w_test_num_values - Merged values of X_test.txt and X_train.txt
+x_train_data, x_test_data, y_train_data, y_test_data - data with id introduced based on X_test and X_train dimensions.
